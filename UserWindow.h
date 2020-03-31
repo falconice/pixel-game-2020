@@ -1,7 +1,9 @@
-
+#ifndef USERWINDOW_H
+#define USERWINDOW_H
 
 #include <SFML/Graphics.hpp>
-#include <cassert>
+#include <iostream>
+#include "Movement.h"
 
 using namespace sf;
 
@@ -9,92 +11,57 @@ class userWindow
 {
 private:
     Clock clock; //Для нормального движения персонажей
+    float sfp;   //секунд на кадр
 
-    Texture movementHero;
-    Texture stayHero;
-    float currentFrameLR = 0;
-    float currentFrameRest = 0;
-    float run = clock.getElapsedTime().asSeconds() * 10; //Режим бега
-    float walk = clock.getElapsedTime().asSeconds() * 5; //Режим ходьбы
+    VideoMode mode;        //формат окна
+    String title;          //название окна
+    RenderWindow *window;  //для пересоздания окна при переключении режимов
+    Movement moveMainHero; //двигающийся персонаж
 
 public:
-    void display()
+    userWindow() : moveMainHero(&sfp)
+    { //конструктор окна
+        mode = VideoMode().getDesktopMode();
+        title = "Pixel Game 2020";
+        window = new RenderWindow(mode, title, Style::Fullscreen); //Игровое окно, на весь экран
+        window->setVerticalSyncEnabled(true);                      //vsync on
+        window->setFramerateLimit(60);                             //fps 60
+    }
+
+    void launch()
     {
+        //открытие окна
 
-        RenderWindow window(VideoMode().getDesktopMode(), "Game");
-
-        movementHero.loadFromFile("spritesheet_Lucy.png");
-        stayHero.loadFromFile("spritesheet_LucyStay.png");
-
-        Sprite heroSprite;
-        heroSprite.setTextureRect(IntRect(0, 0, 64, 64));
-        heroSprite.setTexture(movementHero);
-        heroSprite.setPosition(0, 0);
-        heroSprite.scale(4, 4);
-
-        float time = walk;
-        clock.restart();
-
-        window.display();
-        while (window.isOpen())
+        window->display();
+        while (window->isOpen())
         {
+            sfp = clock.getElapsedTime().asSeconds();  //записываем кол-во секунд на кадр
+            clock.restart();
             Event event;
-            while (window.pollEvent(event))
+            while (window->pollEvent(event))
             {
-                if (event.type == Event::Closed)
+                if (event.type == Event::Closed || (Keyboard::isKeyPressed(Keyboard::Escape)))
                 {
-                    window.close();
+                    //Добавить сохранение перед выходом
+                    window->close();
                 }
+            };
+            if (Keyboard::isKeyPressed(Keyboard::F)) // переход в оконной режим ,  содержащий кнопки свернуть, развернуть и закрыть
+            {
+                window->close();
+                window = new RenderWindow(mode, title, Style::Default);
             }
 
-            heroSprite.setTextureRect(IntRect(0, 0, 64, 64));
-            heroSprite.setTexture(stayHero);
-            currentFrameRest += 0.015 * walk;
-            if (currentFrameRest > 22)
-                currentFrameRest -= 22;
-            heroSprite.setTextureRect(IntRect(64 * int(currentFrameRest), 0, 64, 64));
+            moveMainHero.stayCalm();   // Порядок не менять, последние кадры перекрывают первые!
+            moveMainHero.goRight();  
+            moveMainHero.goLeft();
+            moveMainHero.goDown();
+            moveMainHero.goUp();
 
-            if (Keyboard::isKeyPressed(Keyboard::Left))
-            {
-                heroSprite.setTexture(movementHero);
-                heroSprite.move(-0.1 * time, 0);
-                currentFrameLR += 0.015 * walk;
-                if (currentFrameLR > 10)
-                    currentFrameLR -= 10;
-                heroSprite.setTextureRect(IntRect(64 * int(currentFrameLR) + 64, 192, -64, 64));
-            }
-            if (Keyboard::isKeyPressed(Keyboard::Right))
-            {
-                heroSprite.setTexture(movementHero);
-                heroSprite.move(0.1 * time, 0);
-                currentFrameLR += 0.015 * walk;
-                if (currentFrameLR > 10)
-                    currentFrameLR -= 10;
-                heroSprite.setTextureRect(IntRect(64 * int(currentFrameLR), 192, 64, 64));
-            }
-            if (Keyboard::isKeyPressed(Keyboard::Up))
-            {
-                heroSprite.setTexture(movementHero);
-                heroSprite.move(0, -0.1 * time);
-                currentFrameLR += 0.015 * walk;
-                if (currentFrameLR > 8)
-                    currentFrameLR -= 8;
-                heroSprite.setTextureRect(IntRect(64 * int(currentFrameLR), 64, 64, 64));
-            }
-            if (Keyboard::isKeyPressed(Keyboard::Down))
-            {
-                heroSprite.setTexture(movementHero);
-                heroSprite.move(0, 0.1 * time);
-                currentFrameLR += 0.015 * walk;
-                if (currentFrameLR > 8)
-                    currentFrameLR -= 8;
-                heroSprite.setTextureRect(IntRect(64 * int(currentFrameLR), 128, 64, 64));
-            }
-
-            window.clear();
-
-            window.draw(heroSprite);
-            window.display();
+            window->clear();
+            window->draw(moveMainHero.getHeroSprite());
+            window->display();
         }
     }
 };
+#endif
