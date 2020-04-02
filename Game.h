@@ -14,7 +14,7 @@ private:
 public:
     void play()
     {
-        uWindow.launch();
+        uWindow.startGame();
         //Сделать сохранение
         //Сделать Загрузку
         //TODO : Play, Exit, Save, Load, Mode = (Hard, Normal, Easy)

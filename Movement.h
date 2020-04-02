@@ -1,6 +1,6 @@
 //Movemet & Animation for Hero
-#ifndef MOVEMET_H
-#define MOVEMET_H
+#ifndef MOVEMENT_H
+#define MOVEMENT_H
 #include "Hero.h"
 #include <SFML/Graphics.hpp>
 
@@ -38,6 +38,19 @@ public:
         return mainHero.getHero();
     };
 
+    void sayNo()
+    {
+        if (Keyboard::isKeyPressed(Keyboard::N))
+        {
+            float sp = speed();
+            mainHero.getHero().setTexture(mainHero.getSayNOTexture()); // накладываем текстуру покоя персонажа
+            currentFrameRest += 0.005 * sp;                            //изменяем переменную кадров для прокрутки анимации
+            if (currentFrameRest > 39)
+                currentFrameRest -= 39; // прокручиваем анимацию
+            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameRest), 0, 19, 41));
+        }
+    }
+
     void stayCalm()
     {
         float sp = speed();
@@ -45,12 +58,12 @@ public:
         currentFrameRest += 0.015 * sp;                           //изменяем переменную кадров для прокрутки анимации
         if (currentFrameRest > 22)
             currentFrameRest -= 22; // прокручиваем анимацию
-        mainHero.getHero().setTextureRect(IntRect(64 * int(currentFrameRest), 0, 64, 64));
+        mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameRest), 0, 19, 41));
     };
 
     void goRight()
     {
-        if (Keyboard::isKeyPressed(Keyboard::Right))
+        if (Keyboard::isKeyPressed(Keyboard::D))
         {
             float sp = speed();
             mainHero.getHero().setTexture(mainHero.getMoveTexture()); // накладываем текстуру движения персонажа
@@ -58,13 +71,13 @@ public:
             currentFrameUDLR += 0.015 * sp;
             if (currentFrameUDLR > 10) //прокрутка соответствующей анимации
                 currentFrameUDLR -= 10;
-            mainHero.getHero().setTextureRect(IntRect(64 * int(currentFrameUDLR), 192, 64, 64));
+            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 123, 19, 41));
         }
     };
 
     void goLeft()
     { //аналогично goRight()
-        if (Keyboard::isKeyPressed(Keyboard::Left))
+        if (Keyboard::isKeyPressed(Keyboard::A))
         {
             float sp = speed();
             mainHero.getHero().setTexture(mainHero.getMoveTexture());
@@ -72,13 +85,13 @@ public:
             currentFrameUDLR += 0.015 * sp;
             if (currentFrameUDLR > 10)
                 currentFrameUDLR -= 10;
-            mainHero.getHero().setTextureRect(IntRect(64 * int(currentFrameUDLR) + 64, 192, -64, 64));
+            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR) + 19, 123, -19, 41));
         }
     };
 
     void goUp()
     {
-        if (Keyboard::isKeyPressed(Keyboard::Up))
+        if (Keyboard::isKeyPressed(Keyboard::W))
         {
             float sp = speed();
             mainHero.getHero().setTexture(mainHero.getMoveTexture());
@@ -86,13 +99,13 @@ public:
             currentFrameUDLR += 0.015 * sp;
             if (currentFrameUDLR > 8)
                 currentFrameUDLR -= 8;
-            mainHero.getHero().setTextureRect(IntRect(64 * int(currentFrameUDLR), 64, 64, 64));
+            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 41, 19, 41));
         }
     };
 
     void goDown()
     {
-        if (Keyboard::isKeyPressed(Keyboard::Down))
+        if (Keyboard::isKeyPressed(Keyboard::S))
         {
             float sp = speed();
             mainHero.getHero().setTexture(mainHero.getMoveTexture());
@@ -100,7 +113,7 @@ public:
             currentFrameUDLR += 0.015 * sp;
             if (currentFrameUDLR > 8)
                 currentFrameUDLR -= 8;
-            mainHero.getHero().setTextureRect(IntRect(64 * int(currentFrameUDLR), 128, 64, 64));
+            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 82, 19, 41));
         }
     };
 };

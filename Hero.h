@@ -13,30 +13,37 @@ private:
     int level;
     Texture movementHero; //кадры движения
     Texture stayHero;     //кадры покоя
+    Texture sayNoTexture; // кадры отказа от действия
 
 public:
     Hero()
     {
-        movementHero.loadFromFile("spritesheet_Lucy.png"); //загрузка текстуры движения персонажа  (из файла)
-        stayHero.loadFromFile("spritesheet_LucyStay.png"); //загрузка текстуры покоя персонажа  (из файла)
-        hero.setTextureRect(IntRect(0, 0, 64, 64));        // "Создаем" персонажа
-        hero.setPosition(0, 0);                            //Задаем начальную позицию
-        hero.scale(4, 4);                                  // Увеличиваем персоажа в размере для нормального отображения
+        movementHero.loadFromFile("characters\\spritesheet_Lucy_19_41.png"); //загрузка текстуры движения персонажа  (из файла)
+        stayHero.loadFromFile("characters\\spritesheet_LucyStay_41_19.png"); //загрузка текстуры покоя персонажа  (из файла)
+        sayNoTexture.loadFromFile("characters\\spritesheet_Lucy_NO_41_19.png");    // загрузка текстуры отрицания действия
+        hero.setTextureRect(IntRect(0, 0, 19, 41));              // "Создаем" персонажа
+        hero.setPosition(800, 400);                              //Задаем начальную позицию
+        hero.scale(3.5, 3.5);                                    // Увеличиваем персоажа в размере для нормального отображения
     };
 
-    Sprite& getHero() 
+    Sprite &getHero()
     {
         return this->hero;
     };
 
-    Texture&  getMoveTexture()
+    Texture &getMoveTexture()
     {
         return this->movementHero;
     };
 
-    Texture&  getStayTexture()
+    Texture &getStayTexture()
     {
         return this->stayHero;
+    };
+
+    Texture &getSayNOTexture()
+    {
+        return this->sayNoTexture;
     };
 
     void setHero(Sprite hero)
@@ -52,6 +59,11 @@ public:
     void setStayTexture(Texture stayTexture)
     {
         this->movementHero = stayTexture;
+    };
+
+    void setSayNoTexture(Texture sayNoTexture)
+    {
+        this->sayNoTexture = sayNoTexture;
     };
 };
 #endif
