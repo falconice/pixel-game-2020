@@ -42,6 +42,10 @@ public:
     {
         return environment.getGround();
     };
+    Sprite &getGround2Sprite()
+    {
+        return environment.getGround2();
+    };
 };
 
 #endif

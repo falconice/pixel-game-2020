@@ -6,6 +6,10 @@
 #include <iostream>
 #include "Movement.h"
 #include "Composition.h"
+
+#include "WindowLoader.h"
+
+#include "Camera.h"
 using namespace sf;
 
 class Launcher
@@ -21,14 +25,19 @@ private:
     RenderWindow *window;  //для пересоздания окна при переключении режимов
     Movement moveMainHero; //двигающийся персонаж
 
+    WindowLoader queue;
+
 public:
     Launcher() : moveMainHero(&sfp)
     { //конструктор окна
         mode = VideoMode().getDesktopMode();
         title = "Pixel Game 2020";
         window = new RenderWindow(mode, title, Style::Fullscreen); //Игровое окно, на весь экран
-        window->setVerticalSyncEnabled(true);                      //vsync on
-        window->setFramerateLimit(60);                             //fps 60
+
+        view.reset(FloatRect(0, 0, 1920, 1080));
+
+        //window->setVerticalSyncEnabled(true); //vsync on
+        window->setFramerateLimit(60); //fps 60
     }
 
     void launch()
@@ -56,16 +65,25 @@ public:
             }
 
             moveMainHero.stayCalm(); // Порядок не менять, последние кадры перекрывают первые!
+
             moveMainHero.goRight();
             moveMainHero.goLeft();
             moveMainHero.goDown();
             moveMainHero.goUp();
             moveMainHero.sayNo();
 
+            moveView(moveMainHero.getXHero(), moveMainHero.getYHero());
+
+            queue.createQueue(window, back, moveMainHero);
+
+            /*//Moved to WindowLoader
+            window->setView(view);
             window->clear();
             window->draw(back.getGroundSprite());
+            window->draw(back.getGround2Sprite());
+
             window->draw(back.getGrassStoneSprite());
-            window->draw(moveMainHero.getHeroSprite());
+            window->draw(moveMainHero.getHeroSprite());*/
 
             window->display();
         }

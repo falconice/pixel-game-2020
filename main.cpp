@@ -2,11 +2,14 @@
 #include <cassert>
 #include "Game.h"
 
+#include "Map.h"
 using namespace sf;
 
 int main()
 {
-    Game first;
+   //Map map;
+    //map.reader();
+     Game first;
     first.play();
     return 0;
 }

@@ -2,6 +2,7 @@
 #ifndef MOVEMENT_H
 #define MOVEMENT_H
 #include "Hero.h"
+
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
@@ -27,6 +28,7 @@ private:
 public:
     Movement(const float *sfp)
     {
+
         this->sfp = sfp; //записываем количество секнд на кадр
         currentFrameUDLR = 0;
         currentFrameRest = 0;
@@ -37,6 +39,16 @@ public:
     {
         return mainHero.getHero();
     };
+
+    float getXHero()
+    {
+        return mainHero.getX();
+    }
+
+    float getYHero()
+    {
+        return mainHero.getY();
+    }
 
     void sayNo()
     {
@@ -68,6 +80,7 @@ public:
             float sp = speed();
             mainHero.getHero().setTexture(mainHero.getMoveTexture()); // накладываем текстуру движения персонажа
             mainHero.getHero().move(0.1 * sp, 0);                     // походка персонажа==сдвиг его фигуры
+            mainHero.changePosition(0.1 * sp, 0);                     //Фиксируем координаты
             currentFrameUDLR += 0.015 * sp;
             if (currentFrameUDLR > 10) //прокрутка соответствующей анимации
                 currentFrameUDLR -= 10;
@@ -82,6 +95,7 @@ public:
             float sp = speed();
             mainHero.getHero().setTexture(mainHero.getMoveTexture());
             mainHero.getHero().move(-0.1 * sp, 0);
+            mainHero.changePosition(-0.1 * sp, 0);
             currentFrameUDLR += 0.015 * sp;
             if (currentFrameUDLR > 10)
                 currentFrameUDLR -= 10;
@@ -96,6 +110,7 @@ public:
             float sp = speed();
             mainHero.getHero().setTexture(mainHero.getMoveTexture());
             mainHero.getHero().move(0, -0.1 * sp);
+            mainHero.changePosition(0, -0.1 * sp);
             currentFrameUDLR += 0.015 * sp;
             if (currentFrameUDLR > 8)
                 currentFrameUDLR -= 8;
@@ -110,6 +125,7 @@ public:
             float sp = speed();
             mainHero.getHero().setTexture(mainHero.getMoveTexture());
             mainHero.getHero().move(0, 0.1 * sp);
+            mainHero.changePosition(0, 0.1 * sp);
             currentFrameUDLR += 0.015 * sp;
             if (currentFrameUDLR > 8)
                 currentFrameUDLR -= 8;
