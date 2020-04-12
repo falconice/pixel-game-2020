@@ -35,10 +35,11 @@ public:
         mode = walk; //режим передвижения {ходьба, бег}
     };
 
-    Sprite &getHeroSprite()
+    Sprite& getHeroSprite()
     {
         return mainHero.getHero();
-    };
+    }
+
 
     float getXHero()
     {

@@ -33,19 +33,22 @@ public:
         this->setPosition(870, 340);                                            //Запоминаем начальную позицию
 
         hero.scale(3.5, 3.5); // Увеличиваем персоажа в размере для нормального отображения
+       
     };
 
     //-------------GETTTERS----------------------
-    Sprite &getHero()
+    Sprite& getHero()
     {
         return this->hero;
-    };
+    }
 
-    Texture &getMoveTexture()
+
+    Texture& getMoveTexture()
     {
         return this->movementHero;
-    };
+    }
 
+ 
     Texture &getStayTexture()
     {
         return this->stayHero;

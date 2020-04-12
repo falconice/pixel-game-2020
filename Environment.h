@@ -12,8 +12,11 @@ private:
     Sprite ground2; //земля
     Sprite grassStone;
 
+    Sprite House;
+
     Texture groundTexture; //текстура земли
     Texture grassStoneTexture;
+    Texture house;
 
 public:
     Environment()
@@ -30,27 +33,36 @@ public:
 
         ground.setTextureRect(IntRect(0, 0, 1920, 1080)); // "Создаем" землю
         ground.setPosition(0, 0);                         //Задаем начальную позицию
-        //ground.scale(1.01, 1.01);                               // Увеличиваем  в размере для нормального отображения
+                                                          //ground.scale(1.01, 1.01);                         
+                                                                // Увеличиваем  в размере для нормального отображения
 
-       /* ground2.setTexture(groundTexture);
+        house.loadFromFile("map_textures\\HouseStart6.png");
+        House.setTexture(house);
+
+        House.setTextureRect(IntRect(0, 0, 128, 128));
+        House.setPosition(800, 0);
+        House.scale(9, 9);
+
+        /* ground2.setTexture(groundTexture);
         ground2.setTextureRect(IntRect(0, 0, 1920, 1080)); // "Создаем" землю
         ground2.setPosition(7700, 4500);                   //Задаем начальную позицию
-        ground2.scale(4, 4);     */                          // Увеличиваем персоажа в размере для нормального отображения
-    };
+        ground2.scale(4, 4);     */
+        // Увеличиваем персоажа в размере для нормального отображения
+    }
 
     Sprite &getGround()
     {
         return this->ground;
-    };
+    }
 
     Sprite &getGround2()
     {
-        return this->ground2;
-    };
+        return this->House;
+    }
 
     Sprite &getGrassStone()
     {
         return this->grassStone;
-    };
+    }
 };
 #endif

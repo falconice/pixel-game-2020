@@ -22,7 +22,7 @@ private:
     { //скорость изменения (движения и анимации)
 
         return *sfp * mode * 200;
-    };*/
+    }*/
 
 public:
     /*void createBackground()
@@ -32,20 +32,26 @@ public:
 
     }*/
 
-    Sprite &getGrassStoneSprite()
+    Sprite& getGrassStoneSprite()
     {
         return environment.getGrassStone();
-    };
+    }
 
 
-    Sprite &getGroundSprite()
+
+    Sprite& getGroundSprite()
     {
         return environment.getGround();
-    };
-    Sprite &getGround2Sprite()
+    }
+
+    
+
+    Sprite& getGround2Sprite()
     {
         return environment.getGround2();
-    };
+    }
+
+   
 };
 
 #endif
