@@ -1,0 +1,171 @@
+111 112 113 114 211 212 213 214 215 216 217
+121 122 123 124 221 222 223 224 225 226 227
+131 132 133 134 231 232 233 234 235 236 237
+141 142 143 144 241 242 243 244 245 246 247
+151 152 153 154 251 252 253 254 255 256 257
+161 162 163 164 261 262 263 264 265 266 267
+171 172 173 174 271 272 273 274 275 276 277
+181 182 183 184 281 282 283 284 285 286 287
+411 412 413 414 311 312 313 314 315 316 317
+421 422 423 424 321 322 323 324 325 326 327
+431 432 433 434 331 332 333 334 335 336 337
+441 442 443 444 341 342 343 344 345 346 347
+451 452 453 454 351 352 353 354 355 356 357
+461 462 463 464 361 362 363 364 365 366 367
+
+//
+//sectionNumber Row Col link x y loadnumber
+1 111 "map_textures\\ground1920.png" -7680 -8640 91
+2 112 "map_textures\\ground1920.png" -5760 -8640 105
+3 113 "map_textures\\ground1920.png" -3840 -8640 119
+4 114 "map_textures\\ground1920.png" -1920 -8640 133
+12 121 "map_textures\\ground1920.png" -7680 -7560 92
+13 122 "map_textures\\ground1920.png" -5760 -7560 106
+14 123 "map_textures\\ground1920.png" -3840 -7560 120
+15 124 "map_textures\\ground1920.png" -1920 -7560 134
+23 131 "map_textures\\ground1920.png" -7680 -6480 93
+24 132 "map_textures\\ground1920.png" -5760 -6480 107
+25 133 "map_textures\\ground1920.png" -3840 -6480 121
+26 134 "map_textures\\ground1920.png" -1920 -6480 135
+34 141 "map_textures\\ground1920.png" -7680 -5400 94
+35 142 "map_textures\\ground1920.png" -5760 -5400 108
+36 143 "map_textures\\ground1920.png" -3840 -5400 122
+37 144 "map_textures\\ground1920.png" -1920 -5400 136
+45 151 "map_textures\\ground1920.png" -7680 -4320 95
+46 152 "map_textures\\ground1920.png" -5760 -4320 109
+47 153 "map_textures\\ground1920.png" -3840 -4320 123
+48 154 "map_textures\\ground1920.png" -1920 -4320 137
+56 161 "map_textures\\ground1920.png" -7680 -3240 96
+57 162 "map_textures\\ground1920.png" -5760 -3240 110
+58 163 "map_textures\\ground1920.png" -3840 -3240 124
+59 164 "map_textures\\ground1920.png" -1920 -3240 138
+67 171 "map_textures\\ground1920.png" -7680 -2160 97
+68 172 "map_textures\\ground1920.png" -5760 -2160 111
+69 173 "map_textures\\ground1920.png" -3840 -2160 125
+70 174 "map_textures\\ground1920.png" -1920 -2160 139
+78 181 "map_textures\\ground1920.png" -7680 -1080 98
+79 182 "map_textures\\ground1920.png" -5760 -1080 112
+80 183 "map_textures\\ground1920.png" -3840 -1080 126
+81 184 "map_textures\\ground1920.png" -1920 -1080 140
+5 211 "map_textures\\ground1920.png" 0 -8640 147
+6 212 "map_textures\\ground1920.png" 1920 -8640 7
+7 213 "map_textures\\ground1920.png" 3840 -8640 21
+8 214 "map_textures\\ground1920.png" 5760 -8640 35
+9 215 "map_textures\\ground1920.png" 7680 -8640 49
+10 216 "map_textures\\ground1920.png" 9600 -8640 63
+11 217 "map_textures\\ground1920.png" 11520 -8640 77
+16 221 "map_textures\\ground1920.png" 0 -7560 148
+17 222 "map_textures\\ground1920.png" 1920 -7560 8
+18 223 "map_textures\\ground1920.png" 3840 -7560 22
+19 224 "map_textures\\ground1920.png" 5760 -7560 36
+20 225 "map_textures\\ground1920.png" 7680 -7560 50
+21 226 "map_textures\\ground1920.png" 9600 -7560 64
+22 227 "map_textures\\ground1920.png" 11520 -7560 78
+27 231 "map_textures\\ground1920.png" 0 -6480 149
+28 232 "map_textures\\ground1920.png" 1920 -6480 9
+29 233 "map_textures\\ground1920.png" 3840 -6480 23
+30 234 "map_textures\\ground1920.png" 5760 -6480 37
+31 235 "map_textures\\ground1920.png" 7680 -6480 51
+32 236 "map_textures\\ground1920.png" 9600 -6480 65
+33 237 "map_textures\\ground1920.png" 11520 -6480 79
+38 241 "map_textures\\ground1920.png" 0 -5400 150
+39 242 "map_textures\\ground1920.png" 1920 -5400 10
+40 243 "map_textures\\ground1920.png" 3840 -5400 24
+41 244 "map_textures\\ground1920.png" 5760 -5400 38
+42 245 "map_textures\\ground1920.png" 7680 -5400 52
+43 246 "map_textures\\ground1920.png" 9600 -5400 66
+44 247 "map_textures\\ground1920.png" 11520 -5400 80
+49 251 "map_textures\\ground1920.png" 0 -4320 151
+50 252 "map_textures\\ground1920.png" 1920 -4320 11
+51 253 "map_textures\\ground1920.png" 3840 -4320 25
+52 254 "map_textures\\ground1920.png" 5760 -4320 395
+53 255 "map_textures\\ground1920.png" 7680 -4320 53
+54 256 "map_textures\\ground1920.png" 9600 -4320 67
+55 257 "map_textures\\ground1920.png" 11520 -4320 81
+60 261 "map_textures\\ground1920.png" 0 -3240 152
+61 262 "map_textures\\ground1920.png" 1920 -3240 12
+62 263 "map_textures\\ground1920.png" 3840 -3240 26
+63 264 "map_textures\\ground1920.png" 5760 -3240 40
+64 265 "map_textures\\ground1920.png" 7680 -3240 54
+65 266 "map_textures\\ground1920.png" 9600 -3240 68
+66 267 "map_textures\\ground1920.png" 11520 -3240 82
+71 271 "map_textures\\ground1920.png" 0 -2160 153
+72 272 "map_textures\\ground1920.png" 1920 -2160 13
+73 273 "map_textures\\ground1920.png" 3840 -2160 27
+74 274 "map_textures\\ground1920.png" 5760 -2160 41
+75 275 "map_textures\\ground1920.png" 7680 -2160 55
+76 276 "map_textures\\ground1920.png" 9600 -2160 69
+77 277 "map_textures\\ground1920.png" 11520 -2160 83
+82 281 "map_textures\\ground1920.png" 0 -1080 154
+83 282 "map_textures\\ground1920.png" 1920 -1080 14
+84 283 "map_textures\\ground1920.png" 3840 -1080 28
+85 284 "map_textures\\ground1920.png" 5760 -1080 42
+86 285 "map_textures\\ground1920.png" 7680 -1080 56
+87 286 "map_textures\\ground1920.png" 9600 -1080 70
+88 287 "map_textures\\ground1920.png" 11520 -1080 84
+93 311 "map_textures\\ground1920.png" 0 0 1
+94 312 "map_textures\\ground1920.png" 1920 0 15
+95 313 "map_textures\\ground1920.png" 3840 0 29
+96 314 "map_textures\\ground1920.png" 5760 0 43
+97 315 "map_textures\\ground1920.png" 7680 0 57
+98 316 "map_textures\\ground1920.png" 9600 0 71
+99 317 "map_textures\\ground1920.png" 11520 0 85
+104 321 "map_textures\\ground1920.png" 0 1080 2
+105 322 "map_textures\\ground1920.png" 1920 1080 16
+106 323 "map_textures\\ground1920.png" 3840 1080 30
+107 324 "map_textures\\ground1920.png" 5760 1080 44
+108 325 "map_textures\\ground1920.png" 7680 1080 58
+109 326 "map_textures\\ground1920.png" 9600 1080 72
+110 327 "map_textures\\ground1920.png" 11520 1080 86
+115 331 "map_textures\\ground1920.png" 0 2160 3
+116 332 "map_textures\\ground1920.png" 1920 2160 17
+117 333 "map_textures\\ground1920.png" 3840 2160 31
+118 334 "map_textures\\ground1920.png" 5760 2160 45
+119 335 "map_textures\\ground1920.png" 7680 2160 59
+120 336 "map_textures\\ground1920.png" 9600 2160 73
+121 337 "map_textures\\ground1920.png" 11520 2160 87
+126 341 "map_textures\\ground1920.png" 0 3240 4
+127 342 "map_textures\\ground1920.png" 1920 3240 18
+128 343 "map_textures\\ground1920.png" 3840 3240 32
+129 344 "map_textures\\ground1920.png" 5760 3240 46
+130 345 "map_textures\\ground1920.png" 7680 3240 60
+131 346 "map_textures\\ground1920.png" 9600 3240 74
+132 347 "map_textures\\ground1920.png" 11520 3240 88
+137 351 "map_textures\\ground1920.png" 0 4320 5
+138 352 "map_textures\\ground1920.png" 1920 4320 19
+139 353 "map_textures\\ground1920.png" 3840 4320 33
+140 354 "map_textures\\ground1920.png" 5760 4320 47
+141 355 "map_textures\\ground1920.png" 7680 4320 61
+142 356 "map_textures\\ground1920.png" 9600 4320 75
+143 357 "map_textures\\ground1920.png" 11520 4320 89
+148 361 "map_textures\\ground1920.png" 0 5400 6
+149 362 "map_textures\\ground1920.png" 1920 5400 20
+150 363 "map_textures\\ground1920.png" 3840 5400 34
+151 364 "map_textures\\ground1920.png" 5760 5400 48
+152 365 "map_textures\\ground1920.png" 7680 5400 62
+153 366 "map_textures\\ground1920.png" 9600 5400 76
+154 367 "map_textures\\ground1920.png" 11520 5400 90
+89 411 "map_textures\\ground1920.png" -7680 0 99
+90 412 "map_textures\\ground1920.png" -5760 0 113
+91 413 "map_textures\\ground1920.png" -3840 0 127
+92 414 "map_textures\\ground1920.png" -1920 0 141
+100 421 "map_textures\\ground1920.png" -7680 1080 100
+101 422 "map_textures\\ground1920.png" -5760 1080 114
+102 423 "map_textures\\ground1920.png" -3840 1080 128
+103 424 "map_textures\\ground1920.png" -1920 1080 142
+111 431 "map_textures\\ground1920.png" -7680 2160 101
+112 432 "map_textures\\ground1920.png" -5760 2160 115
+113 433 "map_textures\\ground1920.png" -3840 2160 129
+114 434 "map_textures\\ground1920.png" -1920 2160 143
+122 441 "map_textures\\ground1920.png" -7680 3240 102
+123 442 "map_textures\\ground1920.png" -5760 3240 116
+124 443 "map_textures\\ground1920.png" -3840 3240 130
+125 444 "map_textures\\ground1920.png" -1920 3240 144
+133 451 "map_textures\\ground1920.png" -7680 4320 103
+134 452 "map_textures\\ground1920.png" -5760 4320 117
+135 453 "map_textures\\ground1920.png" -3840 4320 131
+136 454 "map_textures\\ground1920.png" -1920 4320 145
+144 461 "map_textures\\ground1920.png" -7680 5400 104
+145 462 "map_textures\\ground1920.png" -5760 5400 118
+146 463 "map_textures\\ground1920.png" -3840 5400 132
+147 464 "map_textures\\ground1920.png" -1920 5400 146

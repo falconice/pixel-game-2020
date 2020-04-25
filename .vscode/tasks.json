@@ -31,6 +31,35 @@
                 "$gcc"
             ],
             "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "g++.exe build main.cpp",
+            "command": "g++.exe",
+            "args": [
+                "-g",
+                "${fileDirname}\\main.cpp",
+                "-o",
+                "${fileDirname}\\build\\main.exe",
+                "-I",
+                // "C:/Program Files/SFML/SFML-2.5.1/include",
+                "C:/Users/Elisabeth/Downloads/SFML-source/include",
+                "-L",
+                // "C:/Program Files/SFML/SFML-2.5.1/lib",
+                "C:/Users/Elisabeth/Downloads/SFML-source/build/lib",
+                "-lsfml-graphics",
+                "-lsfml-window",
+                "-lsfml-audio",
+                "-lsfml-network",
+                "-lsfml-system"
+            ],
+            "options": {
+                "cwd": "C:\\Program Files (x86)\\MinGW\\mingw32\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
         }
     ]
 }

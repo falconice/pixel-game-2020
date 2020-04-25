@@ -24,6 +24,27 @@
                 }
             ],
             "preLaunchTask": "g++.exe build active file"
+        },
+        {
+            "name": "g++.exe build and debug main file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\build\\main.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\Program Files (x86)\\MinGW\\mingw32\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Включить автоматическое форматирование для gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "g++.exe build main.cpp"
         }
     ]
 }

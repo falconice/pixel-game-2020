@@ -32,26 +32,25 @@ public:
 
     }*/
 
-    Sprite& getGrassStoneSprite()
+    const Sprite &getGrassStoneSprite() const
     {
         return environment.getGrassStone();
     }
 
-
-
-    Sprite& getGroundSprite()
+    /*const  Sprite& getGroundSprite() const
     {
         return environment.getGround();
     }
 
-    
-
-    Sprite& getGround2Sprite()
+     const  Sprite& getGroundSprite2() const
     {
         return environment.getGround2();
-    }
+    }*/
 
-   
+    const Sprite &getGround2Sprite() const
+    {
+        return environment.getHouse();
+    }
 };
 
 #endif

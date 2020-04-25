@@ -1,138 +1,181 @@
-//Movemet & Animation for Hero
+//KeyboardControll
 #ifndef MOVEMENT_H
 #define MOVEMENT_H
-#include "Hero.h"
-
 #include <SFML/Graphics.hpp>
+
+#include "Trigger.h"
 
 using namespace sf;
 
 class Movement
 {
 private:
-    Hero mainHero; //Персонаж (а точнее фигура с наложением текстуры персонажа)
+    Trigger trigger;
 
-    float currentFrameUDLR; //номер текущего кадра в момент управления
-    float currentFrameRest; //номер текущего кадра в момент покоя
-    float run = 10;         //Режим бега
-    float walk = 4;         //Режим ходьбы
-    float mode;             //Переменная режима в которм персонаж передвигается
-    const float *sfp;       //ссылка на sfp из класса UserWindow
-
-    float speed()
-    { //скорость изменения (движения и анимации)
-
-        return *sfp * mode * 200;
-    };
+    float run = 10; //Режим бега
+    float walk = 4; //Режим ходьбы
 
 public:
-    Movement(const float *sfp)
-    {
+    Movement(const float *spf) : trigger(spf){
 
-        this->sfp = sfp; //записываем количество секнд на кадр
-        currentFrameUDLR = 0;
-        currentFrameRest = 0;
-        mode = walk; //режим передвижения {ходьба, бег}
+                                 };
+
+    const Sprite &getHeroSprite() const
+    {
+        return trigger.getHeroSprite();
     };
 
-    Sprite& getHeroSprite()
+    const float getXHero() const
     {
-        return mainHero.getHero();
-    }
+        return trigger.getXHero();
+    };
 
-
-    float getXHero()
+    const float getYHero() const
     {
-        return mainHero.getX();
-    }
+        return trigger.getYHero();
+    };
 
-    float getYHero()
+    void move()
     {
-        return mainHero.getY();
-    }
 
-    void sayNo()
-    {
-        if (Keyboard::isKeyPressed(Keyboard::N))
+        //SayNo
+        //StayCalm
+        //ChangeMode
+
+        if (Keyboard::isKeyPressed(Keyboard::LShift))
         {
-            float sp = speed();
-            mainHero.getHero().setTexture(mainHero.getSayNOTexture()); // накладываем текстуру покоя персонажа
-            currentFrameRest += 0.005 * sp;                            //изменяем переменную кадров для прокрутки анимации
-            if (currentFrameRest > 39)
-                currentFrameRest -= 39; // прокручиваем анимацию
-            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameRest), 0, 19, 41));
+            trigger.changeMode();
+        }
+        else if (Keyboard::isKeyPressed(Keyboard::D))
+        {
+            trigger.goRight();
+        }
+        else if (Keyboard::isKeyPressed(Keyboard::A))
+        {
+            trigger.goLeft();
+        }
+        else if (Keyboard::isKeyPressed(Keyboard::W))
+        {
+            trigger.goUp();
+        }
+        else if (Keyboard::isKeyPressed(Keyboard::S))
+        {
+            trigger.goDown();
+        }
+        else if (Keyboard::isKeyPressed(Keyboard::P))
+        {
+            trigger.printCoordinates();
+        }
+        else
+        {
+            trigger.stayCalm();
         }
     }
 
-    void stayCalm()
+    /*////-----------------------
+    //__________________!!!!!DANGER ZONE!!!!_________________
+    ///-------GET SPRITES------------
+    //1
+    const Sprite &getFirstNeighbour() const
     {
-        float sp = speed();
-        mainHero.getHero().setTexture(mainHero.getStayTexture()); // накладываем текстуру покоя персонажа
-        currentFrameRest += 0.015 * sp;                           //изменяем переменную кадров для прокрутки анимации
-        if (currentFrameRest > 22)
-            currentFrameRest -= 22; // прокручиваем анимацию
-        mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameRest), 0, 19, 41));
+        return trigger.getFirstNeighbour();
     };
 
-    void goRight()
+    Sprite &getFirstNeighbour()
     {
-        if (Keyboard::isKeyPressed(Keyboard::D))
-        {
-            float sp = speed();
-            mainHero.getHero().setTexture(mainHero.getMoveTexture()); // накладываем текстуру движения персонажа
-            mainHero.getHero().move(0.1 * sp, 0);                     // походка персонажа==сдвиг его фигуры
-            mainHero.changePosition(0.1 * sp, 0);                     //Фиксируем координаты
-            currentFrameUDLR += 0.015 * sp;
-            if (currentFrameUDLR > 10) //прокрутка соответствующей анимации
-                currentFrameUDLR -= 10;
-            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 123, 19, 41));
-        }
+        return trigger.getFirstNeighbour();
     };
 
-    void goLeft()
-    { //аналогично goRight()
-        if (Keyboard::isKeyPressed(Keyboard::A))
-        {
-            float sp = speed();
-            mainHero.getHero().setTexture(mainHero.getMoveTexture());
-            mainHero.getHero().move(-0.1 * sp, 0);
-            mainHero.changePosition(-0.1 * sp, 0);
-            currentFrameUDLR += 0.015 * sp;
-            if (currentFrameUDLR > 10)
-                currentFrameUDLR -= 10;
-            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR) + 19, 123, -19, 41));
-        }
+    //2
+    const Sprite &getSecondNeighbour() const
+    {
+        return trigger.getSecondNeighbour();
+    }
+
+    Sprite &getSecondNeighbour()
+    {
+        return trigger.getSecondNeighbour();
+    }
+
+    //3
+    const Sprite &getThirdNeighbour() const
+    {
+        return trigger.getThirdNeighbour();
+    }
+
+    Sprite &getThirdNeighbour()
+    {
+        return trigger.getThirdNeighbour();
+    }
+
+    //4
+    const Sprite &getFourthdNeighbour() const
+    {
+        return trigger.getFourthdNeighbour();
+    }
+
+    Sprite &getFourthdNeighbour()
+    {
+        return trigger.getFourthdNeighbour();
+        ;
+    }
+    //5 CENTRE
+    const Sprite &getFifthdNeighbour() const
+    {
+        return trigger.getFifthdNeighbour();
+    }
+
+    Sprite &getFifthdNeighbour()
+    {
+        return trigger.getFifthdNeighbour();
+    }
+    //6
+    const Sprite &getSixthNeighbour() const
+    {
+        return trigger.getSixthNeighbour();
+    }
+
+    Sprite &getSixthNeighbour()
+    {
+        return trigger.getSixthNeighbour();
+    }
+
+    //7
+    const Sprite &getSeventhNeighbour() const
+    {
+        return trigger.getSeventhNeighbour();
+    }
+
+    Sprite &getSeventhNeighbour()
+    {
+        return trigger.getSeventhNeighbour();
+    }
+
+    //8
+    const Sprite &getEighthNeighbour() const
+    {
+        return trigger.getEighthNeighbour();
+    }
+
+    Sprite &getEighthNeighbour()
+    {
+        return trigger.getEighthNeighbour();
+    }
+    //9
+    const Sprite &getNinthNeighbour() const
+    {
+        return trigger.getNinthNeighbour();
+    }
+
+    Sprite &getNinthNeighbour()
+    {
+        return trigger.getNinthNeighbour();
+    }*/
+    const Sprite ***getMapSprites() const
+    {
+        return trigger.getMapSprites();
     };
 
-    void goUp()
-    {
-        if (Keyboard::isKeyPressed(Keyboard::W))
-        {
-            float sp = speed();
-            mainHero.getHero().setTexture(mainHero.getMoveTexture());
-            mainHero.getHero().move(0, -0.1 * sp);
-            mainHero.changePosition(0, -0.1 * sp);
-            currentFrameUDLR += 0.015 * sp;
-            if (currentFrameUDLR > 8)
-                currentFrameUDLR -= 8;
-            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 41, 19, 41));
-        }
-    };
-
-    void goDown()
-    {
-        if (Keyboard::isKeyPressed(Keyboard::S))
-        {
-            float sp = speed();
-            mainHero.getHero().setTexture(mainHero.getMoveTexture());
-            mainHero.getHero().move(0, 0.1 * sp);
-            mainHero.changePosition(0, 0.1 * sp);
-            currentFrameUDLR += 0.015 * sp;
-            if (currentFrameUDLR > 8)
-                currentFrameUDLR -= 8;
-            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 82, 19, 41));
-        }
-    };
 };
 
 #endif

@@ -18,7 +18,7 @@ private:
     Composition back;
 
     Clock clock; //Для нормального движения персонажей
-    float sfp;   //секунд на кадр
+    float spf;   //секунд на кадр
 
     VideoMode mode;        //формат окна
     String title;          //название окна
@@ -28,7 +28,7 @@ private:
     WindowLoader queue;
 
 public:
-    Launcher() : moveMainHero(&sfp)
+    Launcher() : moveMainHero(&spf)
     { //конструктор окна
         mode = VideoMode().getDesktopMode();
         title = "Pixel Game 2020";
@@ -47,7 +47,7 @@ public:
         window->display();
         while (window->isOpen())
         {
-            sfp = clock.getElapsedTime().asSeconds(); //записываем кол-во секунд на кадр
+            spf = clock.getElapsedTime().asSeconds(); //записываем кол-во секунд на кадр
             clock.restart();
             Event event;
             while (window->pollEvent(event))
@@ -64,13 +64,14 @@ public:
                 window = new RenderWindow(mode, title, Style::Default);
             }
 
-            moveMainHero.stayCalm(); // Порядок не менять, последние кадры перекрывают первые!
+            /* moveMainHero.stayCalm(); // Порядок не менять, последние кадры перекрывают первые!
 
             moveMainHero.goRight();
             moveMainHero.goLeft();
             moveMainHero.goDown();
             moveMainHero.goUp();
-            moveMainHero.sayNo();
+            moveMainHero.sayNo();*/
+            moveMainHero.move();
 
             moveView(moveMainHero.getXHero(), moveMainHero.getYHero());
 
