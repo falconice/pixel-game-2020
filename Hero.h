@@ -24,7 +24,6 @@ private:
     {
         this->x = x;
         this->y = y;
-        activeMap.changePosition(x, y);
     };
 
 public:
@@ -107,7 +106,13 @@ public:
 
     void changePosition(float OffsetX, float OffsetY)
     {
+
         setPosition(this->getX() + OffsetX, this->getY() + OffsetY);
+    };
+
+    void changeMap()
+    {
+        activeMap.changePosition(x, y);
     };
 
     //---------Other Getter

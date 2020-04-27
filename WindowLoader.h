@@ -35,13 +35,15 @@ private:
 
         map = moveMainHero.getMapSprites();
 
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                window->draw(*((const Sprite *(*)[3])map)[i][j]);
-            }
-        }
+      //  for (int i = 0; i < 3; i++)
+        //{
+         //   for (int j = 0; j < 3; j++)
+         //   {
+                window->draw(*((const Sprite *(*)[3])map)[1][1]);
+
+             //  ((const Sprite *(*)[3])map)[1][1]->getTexture();
+           // }
+       // }
 
         // back.getGroundSprite());
         // window->draw(back.getGroundSprite2());
