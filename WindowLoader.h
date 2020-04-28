@@ -14,14 +14,18 @@ class WindowLoader
 private:
     Sprite background;         // задний план
     Texture backgroundTexture; //текстура земли
+    String oldTexturePath = "";
 
     void LoadGround(RenderWindow *window, Movement &moveMainHero)
     {
-
-        backgroundTexture.loadFromFile(moveMainHero.getTexturePath()); //загрузка текстуры земли (из файла)
-        background.setTexture(backgroundTexture);
-        background.setTextureRect(IntRect(0, 0, 1920, 1080)); // "Создаем" землю
-        background.setPosition(0, 0);
+        if (oldTexturePath != moveMainHero.getTexturePath())
+        {
+            backgroundTexture.loadFromFile(moveMainHero.getTexturePath()); //загрузка текстуры земли (из файла)
+            oldTexturePath = moveMainHero.getTexturePath();
+            background.setTexture(backgroundTexture);
+            background.setTextureRect(IntRect(0, 0, 1920, 1080)); // "Создаем" землю
+            background.setPosition(0, 0);
+        }
     }
 
 public:
@@ -32,9 +36,10 @@ public:
     {
         LoadGround(window, moveMainHero);
         // window->setView(view);
+
         window->clear();
 
-        window->draw(background);
+         window->draw(background);
 
         window->draw(back.getGrassStoneSprite());
         window->draw(moveMainHero.getHeroSprite());
