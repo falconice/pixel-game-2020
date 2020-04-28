@@ -3,7 +3,6 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
-//#include "ActiveMap.h"
 #include "Movement.h"
 #include "Composition.h"
 
@@ -13,52 +12,29 @@ using namespace sf;
 class WindowLoader
 {
 private:
-    //ActiveMap activeMap;
+    Sprite background;         // задний план
+    Texture backgroundTexture; //текстура земли
 
-    const Sprite ***map;
-
-    void LoadGround(RenderWindow *window, const Movement &moveMainHero)
+    void LoadGround(RenderWindow *window, Movement &moveMainHero)
     {
-        // activeMap.changePosition(moveMainHero.getXHero(), moveMainHero.getYHero());
 
-        //window->draw(moveMainHero.getFirstNeighbour());
-        //  window->draw(moveMainHero.getSecondNeighbour());
-        //window->draw(moveMainHero.getThirdNeighbour());
-
-        // window->draw(moveMainHero.getFourthdNeighbour());
-        // window->draw(moveMainHero.getFifthdNeighbour());
-        // window->draw(moveMainHero.getSixthNeighbour());
-
-        // window->draw(moveMainHero.getSeventhNeighbour());
-        //  window->draw(moveMainHero.getEighthNeighbour());
-        // window->draw(moveMainHero.getNinthNeighbour());
-
-        map = moveMainHero.getMapSprites();
-
-      //  for (int i = 0; i < 3; i++)
-        //{
-         //   for (int j = 0; j < 3; j++)
-         //   {
-                window->draw(*((const Sprite *(*)[3])map)[1][1]);
-
-             //  ((const Sprite *(*)[3])map)[1][1]->getTexture();
-           // }
-       // }
-
-        // back.getGroundSprite());
-        // window->draw(back.getGroundSprite2());
+        backgroundTexture.loadFromFile(moveMainHero.getTexturePath()); //загрузка текстуры земли (из файла)
+        background.setTexture(backgroundTexture);
+        background.setTextureRect(IntRect(0, 0, 1920, 1080)); // "Создаем" землю
+        background.setPosition(0, 0);
     }
 
 public:
-    WindowLoader() //: activeMap()
+    WindowLoader()
     {
     }
-    void createQueue(RenderWindow *window, const Composition &back, const Movement &moveMainHero)
+    void createQueue(RenderWindow *window, const Composition &back, Movement &moveMainHero)
     {
-       // window->setView(view);
+        LoadGround(window, moveMainHero);
+        // window->setView(view);
         window->clear();
 
-        LoadGround(window, moveMainHero);
+        window->draw(background);
 
         window->draw(back.getGrassStoneSprite());
         window->draw(moveMainHero.getHeroSprite());

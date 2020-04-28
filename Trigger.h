@@ -8,7 +8,7 @@
 
 #include "Hero.h"
 #include "MapBorders.h"
-//#include "mainHero.h"
+#include "MapStore.h"
 
 using namespace sf;
 
@@ -19,6 +19,8 @@ private:
     Hero mainHero; //Персонаж (а точнее фигура с наложением текстуры персонажа)
 
     MapBorders mapBordersBlockOne;
+
+    MapStore mapStore;
 
     // mainHero mainHero;
 
@@ -36,7 +38,7 @@ private:
     };
 
 public:
-    Trigger(const float *spf) //: mainHero()
+    Trigger(const float *spf) : mapStore()
     {
         this->spf = spf; //записываем количество секнд на кадр
         currentFrameUDLR = 0;
@@ -102,20 +104,28 @@ public:
 
         float sp = speed();
         mainHero.getHero().setTexture(mainHero.getMoveTexture()); // накладываем текстуру движения персонажа
-        if (mapBordersBlockOne.FirstBlock_CanGoRight(mainHero.getX(), mainHero.getY()) == true)
-        {
-            mainHero.getHero().move(0.1 * sp, 0); // походка персонажа==сдвиг его фигуры
-            mainHero.changePosition(0.1 * sp, 0); //Фиксируем координаты
+                                                                  // if (mapBordersBlockOne.FirstBlock_CanGoRight(mainHero.getX(), mainHero.getY()) == true)
+                                                                  //  {
 
-            currentFrameUDLR += 0.015 * sp;
-            if (currentFrameUDLR > 10) //прокрутка соответствующей анимации
-                currentFrameUDLR -= 10;
-            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 123, 19, 41));
-        }
-        else
+        if (1850 < mainHero.getX() && mainHero.getX() < 1860)
         {
-            sayNo();
+            mapStore.changeMainFrame(mapStore.getRight(mapStore.getMainFrame())); // берем правого соседа главного кадра и сетим его как главный кадр
+
+            mainHero.changePosition(mapBordersBlockOne.FirstBlock_TeleportRight(mainHero.getX(), mainHero.getY()), 0);
         }
+
+        mainHero.getHero().move(0.1 * sp, 0); // походка персонажа==сдвиг его фигуры
+        mainHero.changePosition(0.1 * sp, 0); //Фиксируем координаты
+
+        currentFrameUDLR += 0.015 * sp;
+        if (currentFrameUDLR > 10) //прокрутка соответствующей анимации
+            currentFrameUDLR -= 10;
+        mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 123, 19, 41));
+        // }
+        // else
+        // {
+        //     sayNo();
+        // }
     };
 
     void goLeft()
@@ -123,20 +133,27 @@ public:
 
         float sp = speed();
         mainHero.getHero().setTexture(mainHero.getMoveTexture());
-        if (mapBordersBlockOne.FirstBlock_CanGoLeft(mainHero.getX(), mainHero.getY()) == true)
+        // if (mapBordersBlockOne.FirstBlock_CanGoLeft(mainHero.getX(), mainHero.getY()) == true)
+        // {
+        if (mainHero.getX() > -2 && mainHero.getX() < 5)
         {
-            mainHero.getHero().move(-0.1 * sp, 0);
-            mainHero.changePosition(-0.1 * sp, 0);
+            mapStore.changeMainFrame(mapStore.getLeft(mapStore.getMainFrame()));
 
-            currentFrameUDLR += 0.015 * sp;
-            if (currentFrameUDLR > 10)
-                currentFrameUDLR -= 10;
-            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR) + 19, 123, -19, 41));
+            mainHero.changePosition(mapBordersBlockOne.FirstBlock_TeleportLeft(mainHero.getX(), mainHero.getY()), 0);
         }
-        else
-        {
-            sayNo();
-        }
+
+        mainHero.getHero().move(-0.1 * sp, 0);
+        mainHero.changePosition(-0.1 * sp, 0);
+
+        currentFrameUDLR += 0.015 * sp;
+        if (currentFrameUDLR > 10)
+            currentFrameUDLR -= 10;
+        mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR) + 19, 123, -19, 41));
+        // }
+        // else
+        // {
+        //     sayNo();
+        // }
     };
 
     void goUp()
@@ -144,40 +161,65 @@ public:
 
         float sp = speed();
         mainHero.getHero().setTexture(mainHero.getMoveTexture());
-        if (mapBordersBlockOne.FirstBlock_CanGoUp(mainHero.getX(), mainHero.getY()) == true)
+        // if (mapBordersBlockOne.FirstBlock_CanGoUp(mainHero.getX(), mainHero.getY()) == true)
+        // {
+        if (mainHero.getY() > -65 && mainHero.getY() < 2)
         {
-            mainHero.getHero().move(0, -0.1 * sp);
-            mainHero.changePosition(0, -0.1 * sp);
-            currentFrameUDLR += 0.015 * sp;
-            if (currentFrameUDLR > 8)
-                currentFrameUDLR -= 8;
-            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 41, 19, 41));
+            mapStore.changeMainFrame(mapStore.getUp(mapStore.getMainFrame()));
+
+            mainHero.changePosition(0, mapBordersBlockOne.FirstBlock_TeleportUp(mainHero.getX(), mainHero.getY()));
         }
-        else
-        {
-            sayNo();
-        }
+
+        mainHero.getHero().move(0, -0.1 * sp);
+        mainHero.changePosition(0, -0.1 * sp);
+        //?
+        currentFrameUDLR += 0.015 * sp;
+        if (currentFrameUDLR > 8)
+            currentFrameUDLR -= 8;
+        mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 41, 19, 41));
+        // }
+        // else
+        // {
+        //     sayNo();
+        // }
     };
 
     void goDown()
     {
+        float sp = speed();
+        mainHero.getHero().setTexture(mainHero.getMoveTexture());
 
-        if (mapBordersBlockOne.FirstBlock_CanGoDown(mainHero.getX(), mainHero.getY()) == true)
+        // if (mapBordersBlockOne.FirstBlock_CanGoDown(mainHero.getX(), mainHero.getY()) == true)
+        // {
+
+        if (935 < mainHero.getY() && mainHero.getY() < 1005)
         {
-            float sp = speed();
-            mainHero.getHero().setTexture(mainHero.getMoveTexture());
-            mainHero.getHero().move(0, 0.1 * sp);
-            mainHero.changePosition(0, 0.1 * sp);
-            currentFrameUDLR += 0.015 * sp;
-            if (currentFrameUDLR > 8)
-                currentFrameUDLR -= 8;
-            mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 82, 19, 41));
+            mapStore.changeMainFrame(mapStore.getDown(mapStore.getMainFrame()));
+
+            mainHero.changePosition(0, mapBordersBlockOne.FirstBlock_TeleportDown(mainHero.getX(), mainHero.getY()));
         }
-        else
-        {
-            sayNo();
-        }
+        mainHero.getHero().move(0, 0.1 * sp);
+        mainHero.changePosition(0, 0.1 * sp);
+        //?
+        currentFrameUDLR += 0.015 * sp;
+        if (currentFrameUDLR > 8)
+            currentFrameUDLR -= 8;
+        mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 82, 19, 41));
+        // }
+        // else
+        // {
+        //     sayNo();
+        // }
     };
+
+    String getTexturePath()
+    {
+        return mapStore.getCurrentTexturePath();
+    }
+    // const Sprite &getBackGround() const
+    // {
+    //     return mapStore.getGround();
+    // }
 
     /*=========================================MAP TRIGGERS===========================*/
 
@@ -185,109 +227,6 @@ public:
     {
         std::cout << "\nX: " << getXHero() << ", Y: " << getYHero(); //!!!!!!!!!!!!!!!!
     };
-
-   /* //__________________!!!!!DANGER ZONE!!!!_________________
-    ///-------GET SPRITES------------
-    //1
-    const Sprite &getFirstNeighbour() const
-    {
-        return mainHero.getFirstNeighbour();
-    };
-
-    Sprite &getFirstNeighbour()
-    {
-        return mainHero.getFirstNeighbour();
-    };
-
-    //2
-    const Sprite &getSecondNeighbour() const
-    {
-        return mainHero.getSecondNeighbour();
-    }
-
-    Sprite &getSecondNeighbour()
-    {
-        return mainHero.getSecondNeighbour();
-    }
-
-    //3
-    const Sprite &getThirdNeighbour() const
-    {
-        return mainHero.getThirdNeighbour();
-    }
-
-    Sprite &getThirdNeighbour()
-    {
-        return mainHero.getThirdNeighbour();
-    }
-
-    //4
-    const Sprite &getFourthdNeighbour() const
-    {
-        return mainHero.getFourthdNeighbour();
-    }
-
-    Sprite &getFourthdNeighbour()
-    {
-        return mainHero.getFourthdNeighbour();
-        ;
-    }
-    //5 CENTRE
-    const Sprite &getFifthdNeighbour() const
-    {
-        return mainHero.getFifthdNeighbour();
-    }
-
-    Sprite &getFifthdNeighbour()
-    {
-        return mainHero.getFifthdNeighbour();
-    }
-    //6
-    const Sprite &getSixthNeighbour() const
-    {
-        return mainHero.getSixthNeighbour();
-    }
-
-    Sprite &getSixthNeighbour()
-    {
-        return mainHero.getSixthNeighbour();
-    }
-
-    //7
-    const Sprite &getSeventhNeighbour() const
-    {
-        return mainHero.getSeventhNeighbour();
-    }
-
-    Sprite &getSeventhNeighbour()
-    {
-        return mainHero.getSeventhNeighbour();
-    }
-
-    //8
-    const Sprite &getEighthNeighbour() const
-    {
-        return mainHero.getEighthNeighbour();
-    }
-
-    Sprite &getEighthNeighbour()
-    {
-        return mainHero.getEighthNeighbour();
-    }
-    //9
-    const Sprite &getNinthNeighbour() const
-    {
-        return mainHero.getNinthNeighbour();
-    }
-
-    Sprite &getNinthNeighbour()
-    {
-        return mainHero.getNinthNeighbour();
-    }*/
-    const Sprite ***getMapSprites() const
-    {
-        return mainHero.getMapSprites();
-    }
 };
 
 #endif

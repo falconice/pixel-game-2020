@@ -72,110 +72,15 @@ public:
         }
     }
 
-    /*////-----------------------
-    //__________________!!!!!DANGER ZONE!!!!_________________
-    ///-------GET SPRITES------------
-    //1
-    const Sprite &getFirstNeighbour() const
+    String getTexturePath()
     {
-        return trigger.getFirstNeighbour();
-    };
-
-    Sprite &getFirstNeighbour()
-    {
-        return trigger.getFirstNeighbour();
-    };
-
-    //2
-    const Sprite &getSecondNeighbour() const
-    {
-        return trigger.getSecondNeighbour();
+        return trigger.getTexturePath();
     }
 
-    Sprite &getSecondNeighbour()
-    {
-        return trigger.getSecondNeighbour();
-    }
-
-    //3
-    const Sprite &getThirdNeighbour() const
-    {
-        return trigger.getThirdNeighbour();
-    }
-
-    Sprite &getThirdNeighbour()
-    {
-        return trigger.getThirdNeighbour();
-    }
-
-    //4
-    const Sprite &getFourthdNeighbour() const
-    {
-        return trigger.getFourthdNeighbour();
-    }
-
-    Sprite &getFourthdNeighbour()
-    {
-        return trigger.getFourthdNeighbour();
-        ;
-    }
-    //5 CENTRE
-    const Sprite &getFifthdNeighbour() const
-    {
-        return trigger.getFifthdNeighbour();
-    }
-
-    Sprite &getFifthdNeighbour()
-    {
-        return trigger.getFifthdNeighbour();
-    }
-    //6
-    const Sprite &getSixthNeighbour() const
-    {
-        return trigger.getSixthNeighbour();
-    }
-
-    Sprite &getSixthNeighbour()
-    {
-        return trigger.getSixthNeighbour();
-    }
-
-    //7
-    const Sprite &getSeventhNeighbour() const
-    {
-        return trigger.getSeventhNeighbour();
-    }
-
-    Sprite &getSeventhNeighbour()
-    {
-        return trigger.getSeventhNeighbour();
-    }
-
-    //8
-    const Sprite &getEighthNeighbour() const
-    {
-        return trigger.getEighthNeighbour();
-    }
-
-    Sprite &getEighthNeighbour()
-    {
-        return trigger.getEighthNeighbour();
-    }
-    //9
-    const Sprite &getNinthNeighbour() const
-    {
-        return trigger.getNinthNeighbour();
-    }
-
-    Sprite &getNinthNeighbour()
-    {
-        return trigger.getNinthNeighbour();
-    }*/
-    const Sprite ***getMapSprites() const
-    {
-        return trigger.getMapSprites();
-    };
-
+    // const Sprite &getBackGround() const
+    // {
+    //     return trigger.getBackGround();
+    // }
 };
 
 #endif

@@ -37,7 +37,7 @@ public:
         view.reset(FloatRect(0, 0, 1920, 1080));
 
         //window->setVerticalSyncEnabled(true); //vsync on
-        window->setFramerateLimit(60); //fps 60
+        //window->setFramerateLimit(60); //fps 60
     }
 
     void launch()
