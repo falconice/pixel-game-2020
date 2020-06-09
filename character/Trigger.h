@@ -6,9 +6,9 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Hero.h"
-#include "MapBorders.h"
-#include "MapStore.h"
+#include "../character/Hero.h"
+#include "../map/MapBorders.h"
+#include "../map/MapStore.h"
 
 using namespace sf;
 

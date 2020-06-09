@@ -4,8 +4,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Movement.h"
-#include "Composition.h"
+#include "../character/Movement.h"
+#include "../environment/Composition.h"
 
 #include "WindowLoader.h"
 
@@ -30,9 +30,9 @@ private:
 public:
     Launcher() : moveMainHero(&spf)
     { //конструктор окна
-        mode = VideoMode().getDesktopMode();
+        mode = VideoMode().getDesktopMode(); ///VideoMode(800, 400)
         title = "Pixel Game 2020";
-        window = new RenderWindow(mode, title, Style::Fullscreen); //Игровое окно, на весь экран
+        window = new RenderWindow(mode, title, Style::Fullscreen ); //Игровое окно, на весь экран Style::Fullscreen
 
         view.reset(FloatRect(0, 0, 1920, 1080));
 

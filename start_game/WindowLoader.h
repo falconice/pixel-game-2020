@@ -3,8 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Movement.h"
-#include "Composition.h"
+#include "../character/Movement.h"
+#include "../environment/Composition.h"
 
 #include "Camera.h"
 using namespace sf;

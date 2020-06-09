@@ -1,7 +1,7 @@
 #ifndef MAP_STORE_H
 #define MAP_STORE_H
 #include <SFML/Graphics.hpp>
-#include "SectionBlock.h"
+#include "block/SectionBlock.h"
 
 #include <iostream>
 #include <fstream>
@@ -119,7 +119,7 @@ public:
 
     int getLeft(int currentFrameNumber)
     {
-        std::cout << "Get Left <----, new frame is:" << getFrameByNumber(currentFrameNumber).getLeftNeighbour() << std::endl;
+       // std::cout << "Get Left <----, new frame is:" << getFrameByNumber(currentFrameNumber).getLeftNeighbour() << std::endl;
         return getFrameByNumber(currentFrameNumber).getLeftNeighbour();
     }
 
@@ -128,7 +128,7 @@ public:
 
         this->mainFrame = newFrameNumber;
 
-        std::cout << "Main frame changed , new frame is:" << this->mainFrame << std::endl;
+       // std::cout << "Main frame changed , new frame is:" << this->mainFrame << std::endl;
     }
 
     String getCurrentTexturePath()

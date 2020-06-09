@@ -3,7 +3,7 @@
 #define ENVIRONMENT_H
 #include <SFML/Graphics.hpp>
 
-#include "SectionBlock.h"
+#include "../map/block/SectionBlock.h"
 
 using namespace sf;
 

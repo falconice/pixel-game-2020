@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <cassert>
-#include "Game.h"
+#include "start_game/Game.h"
 
 using namespace sf;
 
