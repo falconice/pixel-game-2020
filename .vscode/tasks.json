@@ -6,7 +6,7 @@
         {
             "type": "shell",
             "label": "g++.exe build active file",
-            "command": "g++.exe",
+            "command": "C:\\MinGW2022\\bin\\g++.exe",
             "args": [
                 "-g",
                 "${file}",
@@ -14,10 +14,10 @@
                 "${fileDirname}\\build\\${fileBasenameNoExtension}.exe",
                 "-I",
                 // "C:/Program Files/SFML/SFML-2.5.1/include",
-                "C:/Users/Elisabeth/Downloads/SFML-source/include",
+                "C:\\Libraries\\SFML2022_source\\SFML-2.5.1\\include",
                 "-L",
                 // "C:/Program Files/SFML/SFML-2.5.1/lib",
-                "C:/Users/Elisabeth/Downloads/SFML-source/build/lib",
+                "C:\\Libraries\\SFML2022_source\\SFML-2.5.1\\build\\lib",
                 "-lsfml-graphics",
                 "-lsfml-window",
                 "-lsfml-audio",
@@ -25,7 +25,7 @@
                 "-lsfml-system"
             ],
             "options": {
-                "cwd": "C:\\Program Files (x86)\\MinGW\\mingw32\\bin"
+                "cwd": "C:\\MinGW2022\\bin"
             },
             "problemMatcher": [
                 "$gcc"
@@ -43,10 +43,10 @@
                 "${fileDirname}\\build\\main.exe",
                 "-I",
                 // "C:/Program Files/SFML/SFML-2.5.1/include",
-                "C:/Users/Elisabeth/Downloads/SFML-source/include",
+                "C:\\Libraries\\SFML2022_source\\SFML-2.5.1\\include",
                 "-L",
                 // "C:/Program Files/SFML/SFML-2.5.1/lib",
-                "C:/Users/Elisabeth/Downloads/SFML-source/build/lib",
+                "C:\\Libraries\\SFML2022_source\\SFML-2.5.1\\build\\lib",
                 "-lsfml-graphics",
                 "-lsfml-window",
                 "-lsfml-audio",
@@ -54,7 +54,7 @@
                 "-lsfml-system"
             ],
             "options": {
-                "cwd": "C:\\Program Files (x86)\\MinGW\\mingw32\\bin"
+                "cwd": "C:\\MinGW2022\\bin"
             },
             "problemMatcher": [
                 "$gcc"

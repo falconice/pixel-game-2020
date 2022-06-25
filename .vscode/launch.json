@@ -15,7 +15,7 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "miDebuggerPath": "C:\\Program Files (x86)\\MinGW\\mingw32\\bin\\gdb.exe",
+            "miDebuggerPath": "C:\\MinGW2022\\bin\\gdb.exe",
             "setupCommands": [
                 {
                     "description": "Включить автоматическое форматирование для gdb",
@@ -36,7 +36,7 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "miDebuggerPath": "C:\\Program Files (x86)\\MinGW\\mingw32\\bin\\gdb.exe",
+            "miDebuggerPath": "C:\\MinGW2022\\bin\\gdb.exe",
             "setupCommands": [
                 {
                     "description": "Включить автоматическое форматирование для gdb",

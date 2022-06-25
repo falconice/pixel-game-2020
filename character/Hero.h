@@ -62,12 +62,12 @@ public:
         return this->sayNoTexture;
     };
 
-    const float getX() const ////!11111111111
+    const float getX() const 
     {
         return this->x;
     }
 
-    const float getY() const /////!!!!!!!!!!!!!
+    const float getY() const 
     {
         return this->y;
     }
@@ -110,8 +110,5 @@ public:
 
     //---------Other Getter
 
-    /* const Sprite &getActiveMapSprites(){
-       
-    }*/
 };
 #endif
