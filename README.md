@@ -4,7 +4,12 @@
 2.  Add sfml dll's to the project root directory. 
 3.  Compile with command :
 ``` bash
-g++.exe -g main.cpp -o main.exe -I path_to_sfml/include -L path_to_sfml_binaries/lib -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-network -lsfml-system
+g++.exe -g main.cpp -o main.exe \
+-I path_to_sfml/include  \
+-L path_to_sfml_binaries/lib \
+-lsfml-graphics -lsfml-window \
+-lsfml-audio -lsfml-network \
+-lsfml-system
 
 ```
 4.  Launch the exe-file
