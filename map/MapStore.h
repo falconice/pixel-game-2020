@@ -17,7 +17,7 @@ private:
     SectionBlock map[14][11];
     int mainFrame;
 
-    ///from 91 to 92
+    /// from 91 to 92
 
     void loadMapStorage()
     {
@@ -28,9 +28,7 @@ private:
             {
                 numberStore[i][j] = count;
                 count++;
-                // cout << numberStore[i][j] << " ";
             }
-            // cout << endl;
         }
         std::string line;
         std::ifstream mapIn("block1.textures");
@@ -54,8 +52,6 @@ private:
                         if (numberStore[i][j] == number)
                         {
                             map[i][j].setSectionBlock(number, path, x, y);
-
-                            // std::cout << map[i][j].getNumber() << " " << map[i][j].getTexturePath().toAnsiString() << " " << map[i][j].getX() << " " << map[i][j].getY() << " " << map[i][j].getUpNeighbour() << " " << map[i][j].getRightNeighbour() << " " << map[i][j].getDownNeighbour() << " " << map[i][j].getLeftNeighbour() << " " << std::endl;
                         };
                     }
                 }
@@ -91,7 +87,7 @@ public:
     MapStore()
     {
         loadMapStorage();
-        mainFrame = 93; //change to function in future
+        mainFrame = 93;
     }
 
     int getMainFrame()
@@ -119,27 +115,18 @@ public:
 
     int getLeft(int currentFrameNumber)
     {
-       // std::cout << "Get Left <----, new frame is:" << getFrameByNumber(currentFrameNumber).getLeftNeighbour() << std::endl;
         return getFrameByNumber(currentFrameNumber).getLeftNeighbour();
     }
 
     void changeMainFrame(int newFrameNumber)
     {
-
         this->mainFrame = newFrameNumber;
-
-       // std::cout << "Main frame changed , new frame is:" << this->mainFrame << std::endl;
     }
 
     String getCurrentTexturePath()
     {
         return getFrameByNumber(mainFrame).getTexturePath();
     }
-
-    /*const Sprite &getGround() const
-    {
-        return this->background;
-    }*/
 };
 
 #endif

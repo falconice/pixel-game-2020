@@ -13,21 +13,17 @@ class SectionBlock
 {
 private:
     int number;
-    // int blockNumber;
     std::string texturePath;
     float x, y;
 
     int nieghbourUp, neighbourDown, neighbourLeft, neighbourRight;
 
-    // Sprite ground;
-    // Texture groundTexture;
 
 public:
-    void setSectionBlock(int number, /*int blockNumber,*/ std::string texturePath, float x, float y)
+    void setSectionBlock(int number, std::string texturePath, float x, float y)
     {
         this->number = number;
-        // std::cout << texturePath << std::endl;
-        // this->blockNumber = blockNumber;
+      
         this->texturePath = texturePath;
         this->x = x;
         this->y = y;
@@ -36,16 +32,8 @@ public:
         this->neighbourDown = (number >= 144 ? 0 : number + 11);
         this->neighbourLeft = (number % 11 == 1 ? 0 : number - 1);
 
-        //groundTexture.loadFromFile(textureFile); //загрузка текстуры земли (из файла)
-        // ground.setTexture(groundTexture);
-        //ground.setTextureRect(IntRect(0, 0, 1920, 1080)); // "Создаем" землю
-        // ground.setPosition(x, y);                         //Задаем начальную позицию
     };
 
-    /* const Sprite &getGround() const
-    {
-        return this->ground;
-    }*/
 
     float getX() //координата верхнего левого угла
     {

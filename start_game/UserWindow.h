@@ -1,13 +1,10 @@
-//User Inteface
+// User Inteface
 #ifndef USERWINDOW_H
 #define USERWINDOW_H
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
 #include "launcher.h"
-using namespace sf;
 
-class userWindow
+class UserWindow
 {
 private:
     Launcher launcher;
@@ -17,5 +14,10 @@ public:
     {
         launcher.launch();
     }
+
+    //Сделать сохранение
+    // void saveGame();
+    //Сделать Загрузку
+    // void loadGame();
 };
 #endif

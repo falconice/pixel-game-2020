@@ -39,7 +39,7 @@ public:
 
         window->clear();
 
-         window->draw(background);
+        window->draw(background);
 
         window->draw(back.getGrassStoneSprite());
         window->draw(moveMainHero.getHeroSprite());
