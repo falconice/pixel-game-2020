@@ -3,7 +3,6 @@
 #define LAUNCHER_H
 
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include "../character/Movement.h"
 #include "../environment/Composition.h"
 
@@ -48,7 +47,7 @@ public:
         while (window->isOpen())
         {
             spf = clock.getElapsedTime().asSeconds(); //записываем кол-во секунд на кадр
-            clock.restart();
+            clock.restart(); 
             Event event;
             while (window->pollEvent(event))
             {
@@ -64,27 +63,13 @@ public:
                 window = new RenderWindow(mode, title, Style::Default);
             }
 
-            /* moveMainHero.stayCalm(); // Порядок не менять, последние кадры перекрывают первые!
-
-            moveMainHero.goRight();
-            moveMainHero.goLeft();
-            moveMainHero.goDown();
-            moveMainHero.goUp();
-            moveMainHero.sayNo();*/
+        
             moveMainHero.move();
 
             moveView(moveMainHero.getXHero(), moveMainHero.getYHero());
 
             queue.createQueue(window, back, moveMainHero);
 
-            /*//Moved to WindowLoader
-            window->setView(view);
-            window->clear();
-            window->draw(back.getGroundSprite());
-            window->draw(back.getGround2Sprite());
-
-            window->draw(back.getGrassStoneSprite());
-            window->draw(moveMainHero.getHeroSprite());*/
 
             window->display();
         }

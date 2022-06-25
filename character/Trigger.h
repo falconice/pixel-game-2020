@@ -1,5 +1,5 @@
-//All trigers include mapTrigers
-//Also Animation for Hero
+// All trigers include mapTrigers
+// Also Animation for Hero
 
 #ifndef TRIGGER_H
 #define TRIGGER_H
@@ -21,8 +21,6 @@ private:
     MapBorders mapBordersBlockOne;
 
     MapStore mapStore;
-
-    // mainHero mainHero;
 
     float currentFrameUDLR; //номер текущего кадра в момент управления
     float currentFrameRest; //номер текущего кадра в момент покоя
@@ -104,9 +102,6 @@ public:
 
         float sp = speed();
         mainHero.getHero().setTexture(mainHero.getMoveTexture()); // накладываем текстуру движения персонажа
-                                                                  // if (mapBordersBlockOne.FirstBlock_CanGoRight(mainHero.getX(), mainHero.getY()) == true)
-                                                                  //  {
-
         if (1850 < mainHero.getX() && mainHero.getX() < 1860)
         {
             mapStore.changeMainFrame(mapStore.getRight(mapStore.getMainFrame())); // берем правого соседа главного кадра и сетим его как главный кадр
@@ -121,11 +116,6 @@ public:
         if (currentFrameUDLR > 10) //прокрутка соответствующей анимации
             currentFrameUDLR -= 10;
         mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 123, 19, 41));
-        // }
-        // else
-        // {
-        //     sayNo();
-        // }
     };
 
     void goLeft()
@@ -133,8 +123,7 @@ public:
 
         float sp = speed();
         mainHero.getHero().setTexture(mainHero.getMoveTexture());
-        // if (mapBordersBlockOne.FirstBlock_CanGoLeft(mainHero.getX(), mainHero.getY()) == true)
-        // {
+
         if (mainHero.getX() > -2 && mainHero.getX() < 5)
         {
             mapStore.changeMainFrame(mapStore.getLeft(mapStore.getMainFrame()));
@@ -149,11 +138,6 @@ public:
         if (currentFrameUDLR > 10)
             currentFrameUDLR -= 10;
         mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR) + 19, 123, -19, 41));
-        // }
-        // else
-        // {
-        //     sayNo();
-        // }
     };
 
     void goUp()
@@ -161,8 +145,7 @@ public:
 
         float sp = speed();
         mainHero.getHero().setTexture(mainHero.getMoveTexture());
-        // if (mapBordersBlockOne.FirstBlock_CanGoUp(mainHero.getX(), mainHero.getY()) == true)
-        // {
+
         if (mainHero.getY() > -65 && mainHero.getY() < 2)
         {
             mapStore.changeMainFrame(mapStore.getUp(mapStore.getMainFrame()));
@@ -177,20 +160,12 @@ public:
         if (currentFrameUDLR > 8)
             currentFrameUDLR -= 8;
         mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 41, 19, 41));
-        // }
-        // else
-        // {
-        //     sayNo();
-        // }
     };
 
     void goDown()
     {
         float sp = speed();
         mainHero.getHero().setTexture(mainHero.getMoveTexture());
-
-        // if (mapBordersBlockOne.FirstBlock_CanGoDown(mainHero.getX(), mainHero.getY()) == true)
-        // {
 
         if (935 < mainHero.getY() && mainHero.getY() < 1005)
         {
@@ -200,27 +175,18 @@ public:
         }
         mainHero.getHero().move(0, 0.1 * sp);
         mainHero.changePosition(0, 0.1 * sp);
-        //?
+
         currentFrameUDLR += 0.015 * sp;
         if (currentFrameUDLR > 8)
             currentFrameUDLR -= 8;
         mainHero.getHero().setTextureRect(IntRect(19 * int(currentFrameUDLR), 82, 19, 41));
-        // }
-        // else
-        // {
-        //     sayNo();
-        // }
     };
 
     String getTexturePath()
     {
         return mapStore.getCurrentTexturePath();
     }
-    // const Sprite &getBackGround() const
-    // {
-    //     return mapStore.getGround();
-    // }
-
+    
     /*=========================================MAP TRIGGERS===========================*/
 
     void printCoordinates()

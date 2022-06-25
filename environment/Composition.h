@@ -18,34 +18,14 @@ private:
     float mode;             //Переменная режима Бег, Ходьба
     const float *sfp;       //ссылка на sfp из класса UserWindow
 
-    /*float speed()
-    { //скорость изменения (движения и анимации)
-
-        return *sfp * mode * 200;
-    }*/
-
+   
 public:
-    /*void createBackground()
-    {
-        environment.getGround();
-        
-
-    }*/
+   
 
     const Sprite &getGrassStoneSprite() const
     {
         return environment.getGrassStone();
     }
-
-    /*const  Sprite& getGroundSprite() const
-    {
-        return environment.getGround();
-    }
-
-     const  Sprite& getGroundSprite2() const
-    {
-        return environment.getGround2();
-    }*/
 
     const Sprite &getGround2Sprite() const
     {

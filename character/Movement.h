@@ -77,10 +77,6 @@ public:
         return trigger.getTexturePath();
     }
 
-    // const Sprite &getBackGround() const
-    // {
-    //     return trigger.getBackGround();
-    // }
 };
 
 #endif
