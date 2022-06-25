@@ -21,9 +21,9 @@ Now in progress.
 
 ## Screenshots
 ### Character sprite
-![](README_img\\girl_sprite_x5.png)
+![](README_img/girl_sprite_x5.png)
 
 ### First location
-![](README_img\\FirstLocation.png)
+![](README_img/FirstLocation.png)
 
 
