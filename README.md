@@ -1,4 +1,14 @@
 # PixelGame2020
+## Description
+Small pixel game started in 2020. Development discontinued.
+
+## Screenshots
+### Character sprite
+![](README_img/girl_sprite_x5.png)
+
+### First location
+![](README_img/FirstLocation.png)
+
 ## How to build and launch
 1. Download and build [SFML](https://www.sfml-dev.org/download.php). (Assure that SFML compatible with your compiler).
 2.  Add sfml dll's to the project root directory. 
@@ -14,16 +24,3 @@ g++.exe -g main.cpp -o main.exe \
 ```
 4.  Launch the exe-file
 5.  Enjoy!
-
-## Description
-Small pixel game started in 2020.  
-Now in progress.
-
-## Screenshots
-### Character sprite
-![](README_img/girl_sprite_x5.png)
-
-### First location
-![](README_img/FirstLocation.png)
-
-
