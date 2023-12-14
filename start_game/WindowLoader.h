@@ -13,18 +13,18 @@ class WindowLoader
 {
 private:
     Sprite background;         // задний план
-    Texture backgroundTexture; //текстура земли
+    Texture backgroundTexture; // текстура земли
     String oldTexturePath = "";
 
     void LoadGround(RenderWindow *window, Movement &moveMainHero)
     {
         if (oldTexturePath != moveMainHero.getTexturePath())
         {
-            backgroundTexture.loadFromFile(moveMainHero.getTexturePath()); //загрузка текстуры земли (из файла)
+            backgroundTexture.loadFromFile(std::filesystem::path(moveMainHero.getTexturePath())); // загрузка текстуры земли (из файла)
             oldTexturePath = moveMainHero.getTexturePath();
             background.setTexture(backgroundTexture);
-            background.setTextureRect(IntRect(0, 0, 1920, 1080)); // "Создаем" землю
-            background.setPosition(0, 0);
+            background.setTextureRect(sf::Rect<int>({0, 0}, {1920, 1080})); // "Создаем" землю
+            background.setPosition({0.0, 0.0});
         }
     }
 

@@ -11,7 +11,7 @@ class MapStore
 {
 private:
     Sprite background;         // задний план
-    Texture backgroundTexture; //текстура земли
+    Texture backgroundTexture; // текстура земли
 
     int numberStore[14][11];
     SectionBlock map[14][11];
@@ -77,10 +77,10 @@ private:
 
     void createMainSprite()
     {
-        backgroundTexture.loadFromFile(getFrameByNumber(mainFrame).getTexturePath()); //загрузка текстуры земли (из файла)
+        backgroundTexture.loadFromFile(std::filesystem::path(getFrameByNumber(mainFrame).getTexturePath())); // загрузка текстуры земли (из файла)
         background.setTexture(backgroundTexture);
-        background.setTextureRect(IntRect(0, 0, 1920, 1080)); // "Создаем" землю
-        background.setPosition(0, 0);
+        background.setTextureRect(sf::Rect<int>({0, 0}, {1920, 1080})); // "Создаем" землю
+        background.setPosition({0.0, 0.0});
     }
 
 public:

@@ -1,4 +1,4 @@
-//KeyboardControll
+// KeyboardControll
 #ifndef MOVEMENT_H
 #define MOVEMENT_H
 #include <SFML/Graphics.hpp>
@@ -12,8 +12,8 @@ class Movement
 private:
     Trigger trigger;
 
-    float run = 10; //Режим бега
-    float walk = 4; //Режим ходьбы
+    float run = 10; // Режим бега
+    float walk = 4; // Режим ходьбы
 
 public:
     Movement(const float *spf) : trigger(spf){
@@ -38,9 +38,9 @@ public:
     void move()
     {
 
-        //SayNo
-        //StayCalm
-        //ChangeMode
+        // SayNo
+        // StayCalm
+        // ChangeMode
 
         if (Keyboard::isKeyPressed(Keyboard::LShift))
         {
@@ -72,11 +72,10 @@ public:
         }
     }
 
-    String getTexturePath()
+    inline sf::String getTexturePath()
     {
         return trigger.getTexturePath();
     }
-
 };
 
 #endif

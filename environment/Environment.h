@@ -25,16 +25,16 @@ public:
         grassStoneTexture.loadFromFile("map_textures\\grass_21_20.png");
         grassStone.setTexture(grassStoneTexture);
 
-        grassStone.setTextureRect(IntRect(0, 0, 21, 20));
-        grassStone.setPosition(0, 0);
-        grassStone.scale(3, 3);
+        grassStone.setTextureRect(sf::Rect<int>({0, 0}, {21, 20}));
+        grassStone.setPosition({0, 0});
+        grassStone.scale({3, 3});
 
         house.loadFromFile("map_textures\\HouseStart6.png");
         houseS.setTexture(house);
 
-        houseS.setTextureRect(IntRect(0, 0, 128, 128));
-        houseS.setPosition(800, 0);
-        houseS.scale(9, 9);
+        houseS.setTextureRect(sf::Rect<int>({0, 0}, {128, 128}));
+        houseS.setPosition({800, 0});
+        houseS.scale({9, 9});
     }
 
     const Sprite &getHouse() const

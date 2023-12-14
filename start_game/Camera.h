@@ -7,7 +7,7 @@ View view;
 
 View moveView(float x, float y)
 {
-    view.setCenter(x + 100, y+200);
+    view.setCenter({x + 100.0, y + 200.0});
     return view;
 }
 

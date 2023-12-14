@@ -8,12 +8,12 @@ using namespace sf;
 class Hero
 {
 private:
-    Sprite hero; //герой
-    String name; //имя персонажа
-    int id;      //персональный id
+    Sprite hero; // герой
+    String name; // имя персонажа
+    int id;      // персональный id
     int level;
-    Texture movementHero; //кадры движения
-    Texture stayHero;     //кадры покоя
+    Texture movementHero; // кадры движения
+    Texture stayHero;     // кадры покоя
     Texture sayNoTexture; // кадры отказа от действия
     float x, y;
 
@@ -21,20 +21,20 @@ private:
     {
         this->x = x;
         this->y = y;
-        hero.setPosition(x, y);
+        hero.setPosition({x, y});
     };
 
 public:
     Hero()
     {
-        movementHero.loadFromFile("characters_textures\\spritesheet_Lucy_19_41.png");    //загрузка текстуры движения персонажа  (из файла)
-        stayHero.loadFromFile("characters_textures\\spritesheet_LucyStay_41_19.png");    //загрузка текстуры покоя персонажа  (из файла)
+        movementHero.loadFromFile("characters_textures\\spritesheet_Lucy_19_41.png");    // загрузка текстуры движения персонажа  (из файла)
+        stayHero.loadFromFile("characters_textures\\spritesheet_LucyStay_41_19.png");    // загрузка текстуры покоя персонажа  (из файла)
         sayNoTexture.loadFromFile("characters_textures\\spritesheet_Lucy_NO_41_19.png"); // загрузка текстуры отрицания действия
-        hero.setTextureRect(IntRect(0, 0, 19, 41));                             // "Создаем" персонажа
+        hero.setTextureRect(sf::Rect<int>({0, 0}, {19, 41}));                            // "Создаем" персонажа
         /* // hero.setPosition(870, 340);                                             //Задаем начальную позицию*/
-        this->setPosition(870, 340);                                            //Запоминаем начальную позицию
+        this->setPosition(870, 340); // Запоминаем начальную позицию
 
-        hero.scale(3.5, 3.5); // Увеличиваем персоажа в размере для нормального отображения
+        hero.scale({(double)(3.5), (double)(3.5)}); // Увеличиваем персоажа в размере для нормального отображения
     };
 
     //-------------GETTTERS----------------------
@@ -62,12 +62,12 @@ public:
         return this->sayNoTexture;
     };
 
-    const float getX() const 
+    const float getX() const
     {
         return this->x;
     }
 
-    const float getY() const 
+    const float getY() const
     {
         return this->y;
     }
@@ -109,6 +109,5 @@ public:
     };
 
     //---------Other Getter
-
 };
 #endif
